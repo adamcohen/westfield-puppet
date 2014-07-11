@@ -1,0 +1,37 @@
+[alias]
+    st = status
+    ci = commit
+    br = branch
+    co = checkout
+    df = diff
+    who = shortlog -s --
+    unstage = reset HEAD
+    undo = checkout --
+    get = pull upstream master
+    put = push origin master
+    changes=diff --name-status -r
+    diffstat=diff --stat -r
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+  last = cat-file commit HEAD
+[color]
+  ui = auto
+[color "branch"]
+  current = yellow reverse
+  local = yellow
+  remote = green
+[color "diff"]
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
+[color "status"]
+  added = yellow
+  changed = green
+  untracked = cyan  
+
+[apply]
+  whitespace = nowarn
+[url "https://github.com/"]
+	insteadOf = git://github.com/
+[url "https://gist.github.com/"]
+	insteadOf = git://gist.github.com/
