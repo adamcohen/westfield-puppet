@@ -216,7 +216,7 @@ class westfield::postgresql::configs(
 
 
   exec {'download westfield dev database':
-    command => "/usr/bin/curl http://aubdc-puppetdev01.dbg.westfield.com/westfield_development.sql -o ${vmshare}/westfield_development.sql",
+    command => "/usr/bin/curl https://www.dropbox.com/s/2x6cjuckpjxsnck/westfield_development.sql -o ${vmshare}/westfield_development.sql",
     creates => "${vmshare}/westfield_development.sql"
   }
 
