@@ -48,6 +48,7 @@ define westfield::apache::configs($ssl = false, $redirect_non_ssl = true, $passe
                           "${server_name}.systest.dbg.westfield.com",
                           "${server_name}.test.dbg.westfield.com",
                           "${server_alias_name}",
+                          "${server_name}.*.xip.io",
                           ],
 
 
@@ -75,6 +76,7 @@ define westfield::apache::configs($ssl = false, $redirect_non_ssl = true, $passe
                           "${server_name}.systest.dbg.westfield.com",
                           "${server_name}.test.dbg.westfield.com",
                           "${server_alias_name}",
+                          "${server_name}.*.xip.io",
                           ],
 
 
