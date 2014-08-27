@@ -213,7 +213,29 @@ class westfield::postgresql::configs(
   # END CENTRE SERVICE #
   ################################################################
 
+  ################################################################
+  # BEGIN EDITORIAL SERVICE #
+  ################################################################
+  postgresql::role{'editorial_service-rw':
+    password_hash => 'editorial_service',
+    login         => true,
+    createdb      => true,
+  }
 
+  postgresql::database { 'editorial_service_test':
+    owner     => 'editorial_service-rw',
+    require   => Postgresql::Role['editorial_service-rw'];
+  }
+
+  # for dev mode only, need more fine grained control in production
+  exec { "grant westfield role to editorial_service-rw":
+    command => "/usr/bin/psql -U postgres postgres -c 'grant westfield to \"editorial_service-rw\";'",
+    user => 'postgres',
+    require => Postgresql::Role['editorial_service-rw'],
+  }
+  ################################################################
+  # END EDITORIAL SERVICE #
+  ################################################################
 
   exec {'download westfield dev database':
     command => "/usr/bin/curl -L https://www.dropbox.com/s/2x6cjuckpjxsnck/westfield_development.sql -o ${vmshare}/westfield_development.sql",
