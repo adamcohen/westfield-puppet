@@ -222,6 +222,11 @@ class westfield::postgresql::configs(
     createdb      => true,
   }
 
+  postgresql::database { 'editorial_service_development':
+    owner     => 'editorial_service-rw',
+    require   => Postgresql::Role['editorial_service-rw'];
+  }
+
   postgresql::database { 'editorial_service_test':
     owner     => 'editorial_service-rw',
     require   => Postgresql::Role['editorial_service-rw'];
