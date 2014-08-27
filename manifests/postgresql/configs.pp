@@ -220,6 +220,7 @@ class westfield::postgresql::configs(
     password_hash => 'editorial_service',
     login         => true,
     createdb      => true,
+    superuser     => true,
   }
 
   postgresql::database { 'editorial_service_development':
